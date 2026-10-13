@@ -148,23 +148,19 @@ document.querySelector('.logo').addEventListener('click', () => {
     document.getElementById('btn-inicio').click();
 });
 
-// 4. Lógica de reproducción de FramexTV
+// 4. Lógica de reproducción de FramexTV (Blindada contra Pop-ups)
 function abrirPlayer(tmdbId) {
     playerContainer.innerHTML = `
         <iframe
             src="https://framextv.xyz/embed/${tmdbId}?autoplay=1"
             style="width: 100%; height: 100%; border: none;"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
             allowfullscreen
+            referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
             title="Reproductor de Película"
         ></iframe>
     `;
-    playerModal.classList.remove('hidden'); // Mostramos la pantalla negra
-    document.body.style.overflow = 'hidden'; // Bloquea el scroll de la página de fondo
+    playerModal.classList.remove('hidden'); 
+    document.body.style.overflow = 'hidden'; 
 }
-
-// Cerrar el reproductor
-document.getElementById('close-player').addEventListener('click', () => {
-    playerModal.classList.add('hidden');
-    playerContainer.innerHTML = ''; // Al borrar el iframe, el video frena automáticamente
-    document.body.style.overflow = 'auto'; // Restauramos el scroll normal
-});
