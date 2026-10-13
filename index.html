@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setflix</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Agregamos FontAwesome para los íconos (Lupa, Campana, Play, Info) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <header id="navbar" class="navbar">
+        <div class="nav-left">
+            <!-- Logotipo tipo Netflix -->
+            <h1 class="logo">SETFLIX</h1>
+            <ul class="nav-links">
+                <li><a href="#" id="btn-inicio" class="active">Inicio</a></li>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Películas</a></li>
+                <li><a href="#">Novedades populares</a></li>
+                <li><a href="#">Mi Lista</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Títulos, personas, géneros...">
+            </div>
+            <!-- Íconos de notificación y perfil -->
+            <div class="nav-icons">
+                <div class="notification-bell">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-badge">1</span>
+                </div>
+                <div class="profile-avatar">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Perfil">
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal (Hero) -->
+    <main id="main-content">
+        <div id="hero-banner" class="hero">
+            <div class="hero-content">
+                <h1 id="hero-title" class="hero-title">Cargando...</h1>
+                
+                <!-- Metadatos de la película estilo Netflix -->
+                <div class="hero-metadata" id="hero-metadata">
+                    <span class="match">98% para ti</span>
+                    <span class="year">2026</span>
+                    <span class="age-badge">16+</span>
+                    <span class="seasons">Película</span>
+                    <span class="hd-badge">HD</span>
+                </div>
+
+                <p id="hero-overview" class="hero-description"></p>
+                <div class="hero-buttons">
+                    <button id="hero-play" class="btn btn-play"><i class="fa-solid fa-play"></i> Reproducir</button>
+                    <button class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Más info</button>
+                </div>
+            </div>
+            <div class="hero-fade-bottom"></div>
+        </div>
+
+        <!-- Contenedor de Filas -->
+        <div id="rows-container" class="rows-container">
+            <!-- Las filas se inyectan acá vía JS -->
+        </div>
+    </main>
+
+    <!-- Modal del Reproductor FramexTV -->
+    <div id="player-modal" class="player-modal hidden">
+        <button id="close-player" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <div id="player-container" class="player-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
